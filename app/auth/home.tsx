@@ -6,7 +6,7 @@ import Typo from '@/components/Typo'
 import { colors, spacingY } from '@/constants/theme'
 import { useRouter } from 'expo-router'
 import BackButton from '@/components/BackButton'
-import UserAvatar from 'react-native-user-avatar';
+import AvatarCommon from '@/components/AvatarCommon'
 
 const Home = () => {
     const router = useRouter();
@@ -19,7 +19,7 @@ const Home = () => {
                 <Typo size={20} fontWeight="700" color={colors.black}>
                     Home Page
                 </Typo>
-                <UserAvatar size={40} name="Arihant" bgColors={['#ccc', '#fafafa', '#ccaabb']} />
+                <AvatarCommon name="Arihant" size={40} backgroundColor={colors.gray} />
             </View>
 
 

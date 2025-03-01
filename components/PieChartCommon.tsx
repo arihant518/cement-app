@@ -1,55 +1,55 @@
-import { StyleSheet, Text, View, Dimensions } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
 import React from 'react';
-import { PieChart } from 'react-native-chart-kit';
-import ScreenWrapper from './ScreenWrapper';
-import { colors } from '@/constants/theme';
-
-const screenWidth = Dimensions.get('window').width;
+import { PieChart } from 'react-native-gifted-charts';
 
 const PieChartCommon = () => {
-    const data = [
-        { name: 'Ok', population: 40, color: colors.red, legendFontColor: '#7F7F7F', legendFontSize: 12 },
-        { name: 'Not Ok', population: 30, color: colors.blue, legendFontColor: '#7F7F7F', legendFontSize: 12 },
-        { name: 'Yer to be Checked', population: 20, color: colors.green, legendFontColor: '#7F7F7F', legendFontSize: 12 },
-    ];
+  const pieData = [
+    { value: 40, color: '#3498db', gradientCenterColor: '#2980b9', text: 'OK - 20' },
+    { value: 30, color: '#2ecc71', gradientCenterColor: '#27ae60', text: 'Not-30' },
+    { value: 20, color: '#e74c3c', gradientCenterColor: '#c0392b', text: 'Yet to be checked-40' },
+    { value: 10, color: '#f1c40f', gradientCenterColor: '#f39c12', text: 'Pending' },
+  ];
 
-    return (
-        <ScreenWrapper>
-            <View style={styles.container}>
-                <Text style={styles.title}>Pie Chart Example</Text>
-                <PieChart
-                    data={data}
-                    width={screenWidth - 40}
-                    height={220}
-                    chartConfig={{
-                        backgroundColor: '#f5f5f5',
-                        backgroundGradientFrom: '#f5f5f5',
-                        backgroundGradientTo: '#f5f5f5',
-                        decimalPlaces: 0,
-                        color: (opacity = 1) => `rgba(0, 0, 0, ${opacity})`,
-                    }}
-                    accessor={'population'}
-                    backgroundColor={'transparent'}
-                    paddingLeft={'15'}
-                    absolute
-                />
-            </View>
-        </ScreenWrapper>
-    );
+  return (
+    <View style={styles.container}>
+      <Text style={styles.title}>Example</Text>
+      <PieChart
+        data={pieData}
+        donut
+        showGradient
+        sectionAutoFocus
+        radius={200}
+        innerRadius={0}
+        showText
+        textSize={12}
+        textColor="white"
+        centerLabelComponent={() => (
+          <Text style={styles.centerText}>Total Status</Text>
+        )}
+      />
+    </View>
+  );
 };
 
 export default PieChartCommon;
 
 const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        alignItems: 'center',
-        justifyContent: 'center',
-        padding: 10,
-    },
-    title: {
-        fontSize: 18,
-        fontWeight: 'bold',
-        marginBottom: 10,
-    },
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#f8f9fa',
+    padding: 20,
+  },
+  title: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    marginBottom: 10,
+    color: '#2c3e50',
+  },
+  centerText: {
+    fontSize: 14,
+    fontWeight: 'bold',
+    color: '#34495e',
+  },
 });

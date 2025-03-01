@@ -4,8 +4,8 @@ import ScreenWrapper from '@/components/ScreenWrapper';
 import { colors, spacingY } from '@/constants/theme';
 import Typo from '@/components/Typo';
 import BackButton from '@/components/BackButton';
-import UserAvatar from 'react-native-user-avatar';
 import { useRouter } from 'expo-router';
+import AvatarCommon from '@/components/AvatarCommon';
 
 
 
@@ -28,7 +28,7 @@ const RrMainPage = () => {
                 <Typo size={20} fontWeight="700" color={colors.black}>
                     RR Review Records
                 </Typo>
-                <UserAvatar size={40} name="Arihant" bgColors={['#ccc', '#fafafa', '#ccaabb']} />
+                <AvatarCommon name="Arihant" size={40} backgroundColor={colors.gray} />
             </View>
 
             <ScrollView contentContainerStyle={styles.scrollContainer}>

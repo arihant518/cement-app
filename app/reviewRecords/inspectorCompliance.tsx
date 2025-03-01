@@ -3,9 +3,10 @@ import React from 'react'
 import ScreenWrapper from '@/components/ScreenWrapper'
 import BackButton from '@/components/BackButton'
 import Typo from '@/components/Typo'
-import UserAvatar from 'react-native-user-avatar';
+// import UserAvatar from 'react-native-user-avatar';
 import { colors, spacingY } from '@/constants/theme'
 import PieChartCommon from '@/components/PieChartCommon'
+import AvatarCommon from '@/components/AvatarCommon'
 
 const InspectorCompliance = () => {
     return (
@@ -16,7 +17,7 @@ const InspectorCompliance = () => {
                 <Typo size={20} fontWeight="700" color={colors.black}>
                     RR Review Records
                 </Typo>
-                <UserAvatar size={40} name="Arihant" bgColors={['#ccc', '#fafafa', '#ccaabb']} />
+                <AvatarCommon name="Arihant" size={40} backgroundColor={colors.gray} />
             </View>
 
             <PieChartCommon />
